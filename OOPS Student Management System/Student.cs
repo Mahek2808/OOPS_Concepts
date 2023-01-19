@@ -10,8 +10,8 @@ namespace OOPSStudentManagementSystem
     //Public class
     public class Student
     {
-        private int age;
-        private int standard;
+        public int age;
+        public int standard;
         //paramitarized constructor
         public Student(int age, int standard)
         {
@@ -59,8 +59,13 @@ namespace OOPSStudentManagementSystem
             public override void CourseDetail()
             {
                 Console.WriteLine("CourseName :" + courseName);
-                Console.WriteLine("CourseCode:" + courseCode);
+                Console.WriteLine("CourseCode :" + courseCode);
+                
             }
+            //public void CourseCode(int code)
+            //{
+            //    Console.WriteLine("CourseCode:" + code);
+            //}
 
 
             public static void Main(string[] args)
@@ -75,7 +80,7 @@ namespace OOPSStudentManagementSystem
                 details.RollNo(10);
                 details.Division(102);
                 details.courseName = "Asp.Net";
-                details.courseCode = 20;
+                details.courseCode=12;
                 details.CourseDetail();
                 Console.WriteLine("Fees of 2 Courses :" + fees.Fees(10000, 10000));
                 Console.WriteLine("Fees of 3 Courses :" + fees.Fees(10000, 10000, 10000));
