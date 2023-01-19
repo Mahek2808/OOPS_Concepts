@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace OOPS_Student_Management_System
 {
     //Interface
-    internal interface IStudent
+    public interface IStudent
     {
          void Name(string name);
          void Course(string course);
