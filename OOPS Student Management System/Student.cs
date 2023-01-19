@@ -1,6 +1,7 @@
 ﻿using OOPS_Student_Management_System;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,19 +13,13 @@ namespace OOPSStudentManagementSystem
         private int age;
         private int standard;
         //paramitarized constructor
-        public Student(int age,int standard)
+        public Student(int age, int standard)
         {
             this.age = age;
-            this.standard = standard;   
+            this.standard = standard;
         }
-        //copy constructor
-        //public Student(Student S)
-        //{
-        //    this.age = S.age;   
-        //    this.standard = S.standard; 
-        //}
 
-        private void GetStudentinfo()
+        public void GetStudentinfo()
         {
             Console.WriteLine("Here is the Details of the student:");
             Console.WriteLine("Age : " + age);
@@ -32,78 +27,60 @@ namespace OOPSStudentManagementSystem
         }
 
 
-        //staic class
+        //static class
         public static class School
         {
-            public static string SchoolName = "Zen School";
-            public static void SName()
+            public static string schoolName = "Zen School";
+            public static void SchoolName()
             {
-                Console.WriteLine("School Name :" + SchoolName);
+                Console.WriteLine("School Name :" + schoolName);
             }
         }
-       
-        public class StudentDetails : CourseDetails,Interface
+
+        public class StudentDetails : CourseDetails, IStudent
         {
-            public string Course()
+            public void Course(string course)
             {
-                Console.WriteLine("Course : Computer Science");
-                return string.Empty;
-               
+                Console.WriteLine("Course : " + course);
+            }
+            public void Division(int div)
+            {
+                Console.WriteLine("Division : " + div);
+            }
+            public void Name(string name)
+            {
+                Console.WriteLine("Name : " + name);
+            }
+            public void RollNo(int no)
+            {
+                Console.WriteLine("Roll No : " + no);
             }
 
-            public int Division()
+            public override void CourseDetail()
             {
-                Console.WriteLine("Division : 101");
-                return 1;
+                Console.WriteLine("CourseName :" + courseName);
+                Console.WriteLine("CourseCode:" + courseCode);
             }
 
-            public string Name()
+
+            public static void Main(string[] args)
             {
-                Console.WriteLine("Name : Sarthak Patel");
-                return string.Empty;    
-                
+                Student student = new Student(12, 7);
+                student.GetStudentinfo();
+                StudentDetails details = new StudentDetails();
+                StudentTotalFees fees = new StudentTotalFees();
+                School.SchoolName();
+                details.Name("Sarthak");
+                details.Course("Computer Science");
+                details.RollNo(10);
+                details.Division(102);
+                details.courseName = "Asp.Net";
+                details.courseCode = 20;
+                details.CourseDetail();
+                Console.WriteLine("Fees of 2 Courses :" + fees.Fees(10000, 10000));
+                Console.WriteLine("Fees of 3 Courses :" + fees.Fees(10000, 10000, 10000));
+
             }
-
-            public int RollNo()
-            {
-                Console.WriteLine("Roll No : 10");
-                return 1;
-            }
-
-            protected internal override void Coursedetails()
-            {
-                Console.WriteLine("CourseName :" + CourseName);
-               // Console.WriteLine("CourseCode:" + CourseCode);
-            }
-
-            public int Coursecodeno()
-            {
-                Console.WriteLine("CourseCode :"+ CourseCode);
-                return 1;
-            }
-
-        }
-
-        public static void Main(string[] args)
-        {
-            Student student = new Student(12,7);
-            student.GetStudentinfo();
-            StudentDetails details = new StudentDetails();
-            StudentTotalFees fees = new StudentTotalFees();
-            StudentTotalFees CourseFees = new CourseFee();
-            School.SName();            
-            details.Name();
-            details.Course();
-            details.RollNo();
-            details.Division();            
-            details.CourseName = "Asp.Net";
-            details.CourseCode = 20;
-            details.Coursecodeno();
-            details.Coursedetails();
-            Console.WriteLine("Default Fees of 1 course :" + fees.CourseFees(10000));
-            Console.WriteLine("Fees of 2 Courses :" + fees.Fees(10000 , 10000));
-            Console.WriteLine("Fees of 3 Courses :" + fees.Fees(10000, 10000 , 10000));
-            
         }
     }
 }

@@ -8,20 +8,18 @@ using System.Threading.Tasks;
 namespace OOPS_Student_Management_System
 {
     //Interface
-    internal interface Interface
+    internal interface IStudent
     {
-        public string Name();
-        public string Course();
-        public int RollNo();
-        public int Division();
+         void Name(string name);
+         void Course(string course);
+         void RollNo(int no);
+         void Division(int div);
     }
-
-    //Abstract class with use of protected internal access modifire
     public abstract class CourseDetails 
     { 
-        protected internal string? CourseName;
-        protected internal int? CourseCode;
-        protected internal int Coursecode
+        public string? courseName;
+        public int? courseCode;
+        public int Coursecode
         {
             get 
             {
@@ -40,7 +38,7 @@ namespace OOPS_Student_Management_System
             }
         }
 
-        protected internal abstract void Coursedetails();
+        public abstract void CourseDetail();
            
     }
 }
