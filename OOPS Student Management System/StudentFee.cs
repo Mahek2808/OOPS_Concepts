@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOPS_Student_Management_System
 {
-    public class StudentTotalFees
+    public class StudentFeesAsParourseSelection
     {
+        
         public int Fees(int course1, int course2)
         {
             return course1 + course2;

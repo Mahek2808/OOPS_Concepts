@@ -12,16 +12,19 @@ namespace OOPSStudentManagementSystem
     {
         public int age;
         public int standard;
+        public string name;
         //paramitarized constructor
-        public Student(int age, int standard)
+        public Student(int age, int standard,string name)
         {
             this.age = age;
             this.standard = standard;
+            this.name=name;
         }
 
-        public void GetStudentinfo()
+        public void GetStudentBasicinfo()
         {
             Console.WriteLine("Here is the Details of the student:");
+            Console.WriteLine("Name : "+ name);
             Console.WriteLine("Age : " + age);
             Console.WriteLine("Standard : " + standard);
         }
@@ -39,49 +42,42 @@ namespace OOPSStudentManagementSystem
 
         public class StudentDetails : CourseDetails, IStudent
         {
-            public void Course(string course)
+            public string GetStudentCourse(string course)
             {
                 Console.WriteLine("Course : " + course);
+                return course;
             }
-            public void Division(int div)
+            public int GetStudentDivision(int div)
             {
                 Console.WriteLine("Division : " + div);
+                return div;
             }
-            public void Name(string name)
-            {
-                Console.WriteLine("Name : " + name);
-            }
-            public void RollNo(int no)
+            public int GetStudentRollNo(int no)
             {
                 Console.WriteLine("Roll No : " + no);
+                return no;
             }
 
-            public override void CourseDetail()
+            public override void GetCourseDetail()
             {
                 Console.WriteLine("CourseName :" + courseName);
                 Console.WriteLine("CourseCode :" + courseCode);
-                
-            }
-            //public void CourseCode(int code)
-            //{
-            //    Console.WriteLine("CourseCode:" + code);
-            //}
 
+            }
 
             public static void Main(string[] args)
             {
-                Student student = new Student(12, 7);
-                student.GetStudentinfo();
+                Student student = new Student(12, 7,"Sarthak Patel");
+                student.GetStudentBasicinfo();
                 StudentDetails details = new StudentDetails();
-                StudentTotalFees fees = new StudentTotalFees();
+                StudentFeesAsParourseSelection fees = new StudentFeesAsParourseSelection();
                 School.SchoolName();
-                details.Name("Sarthak");
-                details.Course("Computer Science");
-                details.RollNo(10);
-                details.Division(102);
+                details.GetStudentCourse("Computer Science");
+                details.GetStudentRollNo(10);
+                details.GetStudentDivision(102);
                 details.courseName = "Asp.Net";
                 details.courseCode=12;
-                details.CourseDetail();
+                details.GetCourseDetail();
                 Console.WriteLine("Fees of 2 Courses :" + fees.Fees(10000, 10000));
                 Console.WriteLine("Fees of 3 Courses :" + fees.Fees(10000, 10000, 10000));
 

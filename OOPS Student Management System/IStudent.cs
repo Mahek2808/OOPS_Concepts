@@ -9,10 +9,10 @@ namespace OOPS_Student_Management_System
 {
     public interface IStudent
     {
-         void Name(string name);
-         void Course(string course);
-         void RollNo(int no);
-         void Division(int div);
+         
+         string GetStudentCourse(string course);
+         int GetStudentRollNo(int no);
+         int GetStudentDivision(int div);
     }
     
 }

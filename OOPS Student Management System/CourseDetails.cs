@@ -9,12 +9,12 @@ namespace OOPS_Student_Management_System
         public abstract class CourseDetails
         {
             public string? courseName;
-            private int coursecode;
+            private int _coursecode;
             public int courseCode
             {
                 get
                 {
-                    return coursecode;
+                    return _coursecode;
                 }
                 set
                 {
@@ -24,12 +24,12 @@ namespace OOPS_Student_Management_System
                     }
                     else
                     {
-                          coursecode = value;
+                          _coursecode = value;
                     }
                 }
             }
 
-            public abstract void CourseDetail();
+            public abstract void GetCourseDetail();
 
         }
     }
