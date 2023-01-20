@@ -70,7 +70,7 @@ namespace OOPSStudentManagementSystem
                 Student student = new Student(12, 7,"Sarthak Patel");
                 student.GetStudentBasicinfo();
                 StudentDetails details = new StudentDetails();
-                StudentFeesAsParourseSelection fees = new StudentFeesAsParourseSelection();
+                StudentFeesAsParCourseSelection fees = new StudentFeesAsParCourseSelection();
                 School.SchoolName();
                 details.GetStudentCourse("Computer Science");
                 details.GetStudentRollNo(10);
